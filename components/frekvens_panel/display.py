@@ -7,6 +7,7 @@ from esphome.const import (
     CONF_PAGES,
     CONF_CONTRAST,
 )
+from esphome.const import __version__ as ESPHOME_VERSION
 
 DEPENDENCIES = []
 
