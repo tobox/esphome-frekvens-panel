@@ -17,7 +17,7 @@ CONF_DATA_PIN = 'data_pin'
 
 frekvenspanel_ns = cg.esphome_ns.namespace("frekvenspanel")
 Panel = frekvenspanel_ns.class_(
-    "Panel", cg.PollingComponent, display.DisplayBuffer
+    "Panel", cg.PollingComponent, display.Display
 )
 
 
@@ -52,6 +52,6 @@ async def to_code(config):
 
     if CONF_LAMBDA in config:
         lambda_ = await cg.process_lambda(
-            config[CONF_LAMBDA], [(display.DisplayBuffer, "it")], return_type=cg.void
+            config[CONF_LAMBDA], [(display.DisplayRef, "it")], return_type=cg.void
         )
         cg.add(var.set_writer(lambda_))
